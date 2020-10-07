@@ -11,9 +11,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -24,7 +23,14 @@ public class UserRestController {
 
     @PostMapping(value = "/insert")
     public ResponseEntity<User> createRestTest() {
-        User testUser = new User("Name", "Surname", LocalDate.now(), "Login", "Password", "Description", "Address");
+        User testUser = new User(
+                "John",
+                "Smith",
+                LocalDate.of(1991, 10, 3),
+                "JohnnS91",
+                "123456789",
+                "Some guy named Smith",
+                "Some house in Chicago");
         User created = repository.save(testUser);
         URI uriOfNewMeal = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("users/{id}")
