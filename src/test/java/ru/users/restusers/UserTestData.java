@@ -1,8 +1,6 @@
 package ru.users.restusers;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 public class UserTestData {
 
@@ -25,8 +23,6 @@ public class UserTestData {
             "asdfg",
             "Some guy named Jack",
             "Some house in Colorado");
-
-    public static final List<User> USERS = Arrays.asList(USER1, USER2);
 
     public static User getNew() {
         return new User(

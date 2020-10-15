@@ -1,6 +1,5 @@
 package ru.users.restusers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +17,11 @@ import java.util.Optional;
 @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserRestController {
 
-    @Autowired
-    private UserRepository repository;
+    private final UserRepository repository;
+
+    public UserRestController(UserRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping(value = "/insert")
     public ResponseEntity<User> createRestTest() {
