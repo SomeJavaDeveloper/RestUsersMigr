@@ -23,12 +23,11 @@ public class UserRestController {
         this.repository = repository;
     }
 
-    @PostMapping(value = "/insert")
+    @PostMapping( "/insert")
     public ResponseEntity<User> createRestTest() {
         User testUser = new User(
                 "John",
                 "Smith",
-                LocalDate.of(1991, 10, 3),
                 "JohnnS91",
                 "123456789",
                 "Some guy named Smith",
